@@ -47,6 +47,158 @@
       "image": "https://images.unsplash.com/photo-1557827352-d0fb40e7e981?w=400&h=280&fit=crop",
       "category": "Plants & Decor",
       "height": "normal"
+    },
+    {
+      "id": 7,
+      "title": "Minimalist Desk Setup",
+      "description": "Clean & organized workspace",
+      "image": "https://images.unsplash.com/photo-1593642532400-2682a8a0fda7?w=400&h=280&fit=crop",
+      "category": "Workspace",
+      "height": "normal"
+    },
+    {
+      "id": 8,
+      "title": "Summer Vibes",
+      "description": "Trending summer style",
+      "image": "https://images.unsplash.com/photo-1595777707802-51b0e32e237b?w=400&h=420&fit=crop",
+      "category": "Fashion",
+      "height": "tall"
+    },
+    {
+      "id": 9,
+      "title": "Skincare Routine",
+      "description": "K-beauty essentials",
+      "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=280&fit=crop",
+      "category": "Beauty",
+      "height": "normal"
+    },
+    {
+      "id": 10,
+      "title": "Bedroom Aesthetic",
+      "description": "Dreamy bedroom design",
+      "image": "https://images.unsplash.com/photo-1596178065887-8f88fb6ce338?w=400&h=420&fit=crop",
+      "category": "Room Decor",
+      "height": "tall"
+    },
+    {
+      "id": 11,
+      "title": "Boho Plant Collection",
+      "description": "Indoor plants & hanging decor",
+      "image": "https://images.unsplash.com/photo-1585436898633-f6a17d2c6d1f?w=400&h=280&fit=crop",
+      "category": "Plants & Decor",
+      "height": "normal"
+    },
+    {
+      "id": 12,
+      "title": "Golden Hour Vibes",
+      "description": "Warm & cozy atmosphere",
+      "image": "https://images.unsplash.com/photo-1597231557726-f7161ca76e50?w=400&h=280&fit=crop",
+      "category": "Lifestyle",
+      "height": "normal"
+    },
+    {
+      "id": 13,
+      "title": "Luxury Handbags",
+      "description": "Statement bags collection",
+      "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=420&fit=crop",
+      "category": "Fashion",
+      "height": "tall"
+    },
+    {
+      "id": 14,
+      "title": "Makeup Palette",
+      "description": "Professional color palette",
+      "image": "https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a9?w=400&h=280&fit=crop",
+      "category": "Beauty",
+      "height": "normal"
+    },
+    {
+      "id": 15,
+      "title": "Ambient Lighting",
+      "description": "Soft mood lighting setup",
+      "image": "https://images.unsplash.com/photo-1565193566173-7cde202f6dca?w=400&h=280&fit=crop",
+      "category": "Room Decor",
+      "height": "normal"
+    },
+    {
+      "id": 16,
+      "title": "Desk Accessories",
+      "description": "Stylish office essentials",
+      "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=420&fit=crop",
+      "category": "Workspace",
+      "height": "tall"
+    },
+    {
+      "id": 17,
+      "title": "Herbal Tea Collection",
+      "description": "Relaxing tea blends",
+      "image": "https://images.unsplash.com/photo-1597318861990-52154adf2d65?w=400&h=280&fit=crop",
+      "category": "Lifestyle",
+      "height": "normal"
+    },
+    {
+      "id": 18,
+      "title": "Marble Decor",
+      "description": "Elegant marble accessories",
+      "image": "https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=400&h=280&fit=crop",
+      "category": "Room Decor",
+      "height": "normal"
+    },
+    {
+      "id": 19,
+      "title": "Streetwear Fits",
+      "description": "Urban casual collection",
+      "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=420&fit=crop",
+      "category": "Fashion",
+      "height": "tall"
+    },
+    {
+      "id": 20,
+      "title": "Hydrating Serums",
+      "description": "Premium skincare serums",
+      "image": "https://images.unsplash.com/photo-1556228014-8f32ba52864a?w=400&h=280&fit=crop",
+      "category": "Beauty",
+      "height": "normal"
+    },
+    {
+      "id": 21,
+      "title": "Succulents & Pots",
+      "description": "Adorable plant collection",
+      "image": "https://images.unsplash.com/photo-1612212088719-a91de56b840b?w=400&h=420&fit=crop",
+      "category": "Plants & Decor",
+      "height": "tall"
+    },
+    {
+      "id": 22,
+      "title": "Candle Collection",
+      "description": "Scented candles for ambiance",
+      "image": "https://images.unsplash.com/photo-1599599810694-b3fa3a51b5a9?w=400&h=280&fit=crop",
+      "category": "Lifestyle",
+      "height": "normal"
+    },
+    {
+      "id": 23,
+      "title": "Wall Art",
+      "description": "Modern wall prints & frames",
+      "image": "https://images.unsplash.com/photo-1579783902614-e3fb5141b0cb?w=400&h=280&fit=crop",
+      "category": "Room Decor",
+      "height": "normal"
+    },
+    {
+      "id": 24,
+      "title": "Jewelry Essentials",
+      "description": "Minimalist jewelry pieces",
+      "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=420&fit=crop",
+      "category": "Fashion",
+      "height": "tall"
+    },
+    {
+      "id": 25,
+      "title": "Rose Gold Aesthetic",
+      "description": "Luxury rose gold items",
+      "image": "https://images.unsplash.com/photo-1501681900356-2b5e5a7121e7?w=400&h=280&fit=crop",
+      "category": "Lifestyle",
+      "height": "normal"
     }
   ]
 }
