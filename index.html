@@ -124,6 +124,38 @@
             box-shadow: 0 8px 30px rgba(212, 165, 116, 0.4);
         }
 
+        /* Filter Section */
+        .filter-section {
+            text-align: center;
+            margin: 40px 0 30px 0;
+            padding: 0 20px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid #d4a574;
+            background: white;
+            color: #d4a574;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #d4a574;
+            color: white;
+        }
+
         /* Pinterest-style Grid */
         .gallery-container {
             max-width: 1200px;
@@ -157,8 +189,7 @@
             height: 280px;
         }
 
-        .pin:nth-child(2),
-        .pin:nth-child(5) {
+        .pin.tall {
             grid-row: span 1.5;
             height: 420px;
         }
@@ -204,6 +235,23 @@
         .pin-description {
             font-size: 12px;
             opacity: 0.9;
+        }
+
+        .pin-category {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state p {
+            font-size: 18px;
         }
 
         /* Stats Section */
@@ -295,6 +343,8 @@
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            font-size: 20px;
         }
 
         .social-links a:hover {
@@ -332,9 +382,17 @@
                 height: 200px;
             }
 
-            .pin:nth-child(2),
-            .pin:nth-child(5) {
+            .pin.tall {
                 height: 300px;
+            }
+
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 6px 16px;
+                font-size: 12px;
             }
         }
     </style>
@@ -364,55 +422,14 @@
     <!-- Pinterest-style Gallery -->
     <section class="gallery-container" id="gallery">
         <h2 class="gallery-title">✨ Featured Finds</h2>
-        <div class="pinterest-grid">
-            <div class="pin">
-                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&h=280&fit=crop" alt="Aesthetic Room" class="pin-image">
-                <div class="pin-overlay">
-                    <div class="pin-text">Aesthetic Room Vibes</div>
-                    <div class="pin-description">Cozy corner inspiration</div>
-                </div>
-            </div>
-
-            <div class="pin">
-                <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=420&fit=crop" alt="Fashion Find" class="pin-image">
-                <div class="pin-overlay">
-                    <div class="pin-text">Trendy Fashion</div>
-                    <div class="pin-description">Latest style picks</div>
-                </div>
-            </div>
-
-            <div class="pin">
-                <img src="https://images.unsplash.com/photo-1545231027-9fc3a08ae7f3?w=400&h=280&fit=crop" alt="Beauty Products" class="pin-image">
-                <div class="pin-overlay">
-                    <div class="pin-text">Beauty Essentials</div>
-                    <div class="pin-description">Top product picks</div>
-                </div>
-            </div>
-
-            <div class="pin">
-                <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=280&fit=crop" alt="Coffee Aesthetic" class="pin-image">
-                <div class="pin-overlay">
-                    <div class="pin-text">Coffee Corner</div>
-                    <div class="pin-description">Cozy coffee moments</div>
-                </div>
-            </div>
-
-            <div class="pin">
-                <img src="https://images.unsplash.com/photo-1505228395891-9a51fb63a290?w=400&h=420&fit=crop" alt="Workspace" class="pin-image">
-                <div class="pin-overlay">
-                    <div class="pin-text">Creative Workspace</div>
-                    <div class="pin-description">Productivity inspiration</div>
-                </div>
-            </div>
-
-            <div class="pin">
-                <img src="https://images.unsplash.com/photo-1557827352-d0fb40e7e981?w=400&h=280&fit=crop" alt="Plants & Decor" class="pin-image">
-                <div class="pin-overlay">
-                    <div class="pin-text">Green Living</div>
-                    <div class="pin-description">Plant & decor ideas</div>
-                </div>
-            </div>
+        
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-buttons" id="filterButtons"></div>
         </div>
+
+        <!-- Gallery Grid -->
+        <div class="pinterest-grid" id="galleryGrid"></div>
     </section>
 
     <!-- Stats Section -->
@@ -423,7 +440,7 @@
                 <p>Followers</p>
             </div>
             <div class="stat-item">
-                <h3>100+</h3>
+                <h3 id="productCount">0</h3>
                 <p>Curated Pins</p>
             </div>
             <div class="stat-item">
@@ -468,5 +485,89 @@
             <p>&copy; 2026 LowkeyFinds. All rights reserved. ✨</p>
         </div>
     </footer>
+
+    <!-- JavaScript for Dynamic Gallery -->
+    <script>
+        let allProducts = [];
+        let currentFilter = 'All';
+
+        // Fetch products from products.json
+        async function loadProducts() {
+            try {
+                const response = await fetch('products.json');
+                const data = await response.json();
+                allProducts = data.products;
+                
+                // Update product count
+                document.getElementById('productCount').textContent = allProducts.length + '+';
+                
+                // Create filter buttons
+                createFilterButtons();
+                
+                // Render gallery
+                renderGallery();
+            } catch (error) {
+                console.error('Error loading products:', error);
+                document.getElementById('galleryGrid').innerHTML = '<div class="empty-state"><p>Error loading products. Please check products.json</p></div>';
+            }
+        }
+
+        // Create filter buttons
+        function createFilterButtons() {
+            const filterContainer = document.getElementById('filterButtons');
+            const categories = ['All', ...new Set(allProducts.map(p => p.category))];
+            
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'filter-btn' + (category === 'All' ? ' active' : '');
+                button.textContent = category;
+                button.onclick = () => filterProducts(category);
+                filterContainer.appendChild(button);
+            });
+        }
+
+        // Filter products by category
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === category) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            renderGallery();
+        }
+
+        // Render gallery
+        function renderGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            
+            const filteredProducts = currentFilter === 'All' 
+                ? allProducts 
+                : allProducts.filter(p => p.category === currentFilter);
+            
+            if (filteredProducts.length === 0) {
+                galleryGrid.innerHTML = '<div class="empty-state"><p>No products found in this category</p></div>';
+                return;
+            }
+            
+            galleryGrid.innerHTML = filteredProducts.map(product => `
+                <div class="pin ${product.height === 'tall' ? 'tall' : ''}">
+                    <img src="${product.image}" alt="${product.title}" class="pin-image">
+                    <div class="pin-overlay">
+                        <div class="pin-text">${product.title}</div>
+                        <div class="pin-description">${product.description}</div>
+                        <div class="pin-category">${product.category}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load products on page load
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
 </body>
 </html>
