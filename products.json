@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Aesthetic Room Vibes",
+      "description": "Cozy corner inspiration",
+      "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&h=280&fit=crop",
+      "category": "Room Decor",
+      "height": "normal"
+    },
+    {
+      "id": 2,
+      "title": "Trendy Fashion",
+      "description": "Latest style picks",
+      "image": "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=420&fit=crop",
+      "category": "Fashion",
+      "height": "tall"
+    },
+    {
+      "id": 3,
+      "title": "Beauty Essentials",
+      "description": "Top product picks",
+      "image": "https://images.unsplash.com/photo-1545231027-9fc3a08ae7f3?w=400&h=280&fit=crop",
+      "category": "Beauty",
+      "height": "normal"
+    },
+    {
+      "id": 4,
+      "title": "Coffee Corner",
+      "description": "Cozy coffee moments",
+      "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=280&fit=crop",
+      "category": "Lifestyle",
+      "height": "normal"
+    },
+    {
+      "id": 5,
+      "title": "Creative Workspace",
+      "description": "Productivity inspiration",
+      "image": "https://images.unsplash.com/photo-1505228395891-9a51fb63a290?w=400&h=420&fit=crop",
+      "category": "Workspace",
+      "height": "tall"
+    },
+    {
+      "id": 6,
+      "title": "Green Living",
+      "description": "Plant & decor ideas",
+      "image": "https://images.unsplash.com/photo-1557827352-d0fb40e7e981?w=400&h=280&fit=crop",
+      "category": "Plants & Decor",
+      "height": "normal"
+    }
+  ]
+}
